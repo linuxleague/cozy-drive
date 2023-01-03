@@ -1,9 +1,7 @@
 import styles from '../styles/topbar.styl'
 
 import React, { Component } from 'react'
-import { translate } from 'cozy-ui/transpiled/react/I18n'
-import { withBreakpoints, BarContextProvider } from 'cozy-ui/transpiled/react'
-import { withClient } from 'cozy-client'
+import { withBreakpoints } from 'cozy-ui/transpiled/react'
 import { withRouter } from 'react-router'
 import PropTypes from 'prop-types'
 import flow from 'lodash/flow'
@@ -110,20 +108,16 @@ export class Topbar extends Component {
       children,
       viewName,
       breakpoints: { isMobile },
-      router,
-      client,
-      t
+      router
     } = this.props
     const isAlbumContent = viewName === 'albumContent'
     const title = <TopbarTitle>{this.renderTitle()}</TopbarTitle>
     const responsiveTitle = isMobile ? <BarCenter>{title}</BarCenter> : title
     const responsiveMenu = isMobile ? (
       <BarRight>
-        <BarContextProvider client={client} store={this.context.store} t={t}>
-          <SharingProvider doctype={DOCTYPE_ALBUMS} documentType="Albums">
-            {children}
-          </SharingProvider>
-        </BarContextProvider>
+        <SharingProvider doctype={DOCTYPE_ALBUMS} documentType="Albums">
+          {children}
+        </SharingProvider>
       </BarRight>
     ) : (
       children
@@ -164,9 +158,4 @@ Topbar.defaultProps = {
   onEdit: () => {}
 }
 
-export default flow(
-  withRouter,
-  withClient,
-  withBreakpoints(),
-  translate()
-)(Topbar)
+export default flow(withRouter, withBreakpoints())(Topbar)
