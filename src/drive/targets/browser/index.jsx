@@ -19,6 +19,7 @@ import AppBarSearch from 'drive/web/modules/search/AppBarSearch'
 
 import App from 'components/App/App'
 import setupApp from './setupAppContext'
+import { BarComponent } from 'cozy-bar/transpiled'
 
 if (__DEVELOPMENT__) {
   window.flag = flag
@@ -26,8 +27,11 @@ if (__DEVELOPMENT__) {
 
 const AppComponent = props => (
   <App {...props}>
+    <BarComponent />
     <AppBarSearch />
-    <Router history={props.history} routes={AppRoute} />
+    <div role="application">
+      <Router history={props.history} routes={AppRoute} />
+    </div>
   </App>
 )
 
@@ -53,3 +57,5 @@ if (module.hot) {
   init()
   module.hot.accept()
 }
+
+/*    */

@@ -11,10 +11,9 @@ import configureStore from 'drive/store/configureStore'
 import { schema } from 'drive/lib/doctypes'
 import { Document } from 'cozy-doctypes'
 import { hashHistory } from 'react-router'
-import cozyBar from 'lib/cozyBar'
 
 const setupApp = memoize(() => {
-  const root = document.querySelector('[role=application]')
+  const root = document.querySelector('#root')
   const data = JSON.parse(root.dataset.cozy)
 
   const protocol = window.location ? window.location.protocol : 'https:'
@@ -51,7 +50,7 @@ const setupApp = memoize(() => {
     token: data.token
   })
 
-  cozyBar.init({
+  /* cozyBar.init({
     appName: data.app.name,
     appEditor: data.app.editor,
     cozyClient: client,
@@ -60,7 +59,7 @@ const setupApp = memoize(() => {
     replaceTitleOnMobile: false,
     appSlug: data.app.slug,
     appNamePrefix: data.app.prefix
-  })
+  }) */
 
   return { locale, polyglot, client, history, store, root }
 })

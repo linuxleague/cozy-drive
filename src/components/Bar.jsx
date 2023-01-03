@@ -10,26 +10,14 @@ import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import { useWebviewIntent } from 'cozy-intent'
 import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 
-const wrap = (Component, className) => {
-  const WrappedBarComponent = ({ children }) => {
-    return (
-      <Component>
-        <CozyTheme
-          className={cx('u-flex u-flex-items-center', className)}
-          variant="normal"
-        >
-          {children}
-        </CozyTheme>
-      </Component>
-    )
-  }
-  return WrappedBarComponent
+const WrappedBarComponent = ({ children }) => {
+  return <div>{children}</div>
 }
 
-export const BarCenter = wrap(cozyBar.BarCenter, 'u-ellipsis')
-export const BarRight = wrap(cozyBar.BarRight)
-export const BarLeft = wrap(cozyBar.BarLeft)
-export const BarSearch = wrap(cozyBar.BarSearch, 'u-flex-grow')
+export const BarCenter = WrappedBarComponent
+export const BarRight = WrappedBarComponent
+export const BarLeft = WrappedBarComponent
+export const BarSearch = WrappedBarComponent
 
 export const BarRightWithProvider = ({ store, children }) => {
   const client = useClient()
