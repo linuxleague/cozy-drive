@@ -50,18 +50,14 @@ const setupApp = memoize(() => {
     token: data.token
   })
 
-  /* cozyBar.init({
-    appName: data.app.name,
-    appEditor: data.app.editor,
-    cozyClient: client,
-    iconPath: data.app.icon,
-    lang: data.locale,
-    replaceTitleOnMobile: false,
-    appSlug: data.app.slug,
-    appNamePrefix: data.app.prefix
-  }) */
-
-  return { locale, polyglot, client, history, store, root }
+  return {
+    locale,
+    polyglot,
+    client,
+    history,
+    store,
+    root
+  }
 })
 
 export default setupApp

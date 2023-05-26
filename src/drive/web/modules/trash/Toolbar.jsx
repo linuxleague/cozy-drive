@@ -10,7 +10,6 @@ import ActionMenu, { ActionMenuItem } from 'cozy-ui/transpiled/react/ActionMenu'
 import Icon from 'cozy-ui/transpiled/react/Icon'
 import TrashIcon from 'cozy-ui/transpiled/react/Icons/Trash'
 
-import { BarRightWithProvider } from 'components/Bar'
 import { ModalContext } from 'drive/lib/ModalContext'
 import { emptyTrash } from 'drive/web/modules/actions/utils'
 import { isSelectionBarVisible } from 'drive/web/modules/selection/duck'
@@ -20,6 +19,7 @@ import EmptyTrashConfirm from './components/EmptyTrashConfirm'
 import SearchButton from 'drive/web/modules/drive/Toolbar/components/SearchButton'
 
 import styles from 'drive/styles/toolbar.styl'
+import { BarRight } from 'cozy-bar/transpiled'
 
 export const Toolbar = ({
   t,
@@ -90,10 +90,10 @@ export const Toolbar = ({
           label={t('toolbar.empty_trash')}
         />
       )}
-      <BarRightWithProvider>
+      <BarRight>
         {isMobile && <SearchButton />}
         {MoreMenu}
-      </BarRightWithProvider>
+      </BarRight>
     </div>
   )
 }

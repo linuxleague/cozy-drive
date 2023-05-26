@@ -2,6 +2,7 @@ import React from 'react'
 import CozyTheme from 'cozy-ui/transpiled/react/CozyTheme'
 import cx from 'classnames'
 import cozyBar from 'lib/cozyBar'
+
 import { VaultUnlockProvider, VaultProvider } from 'cozy-keys-lib'
 import BarContextProvider from 'cozy-ui/transpiled/react/BarContextProvider'
 import { RouterContext, useRouter } from 'drive/lib/RouterContext'
@@ -48,3 +49,26 @@ export const BarRightWithProvider = ({ store, children }) => {
 
   return <>{children}</>
 }
+
+/*
+const wrap = (Component, className) => {
+  const WrappedBarComponent = ({ children }) => {
+    return (
+      <Component>
+        <CozyTheme
+          className={cx('u-flex u-flex-items-center', className)}
+          variant="normal"
+        >
+          {children}
+        </CozyTheme>
+      </Component>
+    )
+  }
+  return WrappedBarComponent
+}
+
+export const BarCenter = wrap(cozyBar.BarCenter, 'u-ellipsis')
+export const BarRight = wrap(cozyBar.BarRight)
+export const BarLeft = wrap(cozyBar.BarLeft)
+export const BarSearch = wrap(cozyBar.BarSearch, 'u-flex-grow')
+ */

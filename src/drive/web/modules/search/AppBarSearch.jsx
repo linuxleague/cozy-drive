@@ -3,7 +3,7 @@ import React from 'react'
 import { useI18n } from 'cozy-ui/transpiled/react/I18n'
 import useBreakpoints from 'cozy-ui/transpiled/react/hooks/useBreakpoints'
 
-import { BarSearch } from 'components/Bar'
+import { BarSearch } from 'cozy-bar/transpiled'
 import BarSearchAutosuggest from 'drive/web/modules/search/components/BarSearchAutosuggest'
 
 const AppBarSearch = () => {

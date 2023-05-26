@@ -29,6 +29,8 @@ import OnlyOfficePaywallView from '../views/OnlyOffice/OnlyOfficePaywallView'
 
 import FilesViewerRecent from '../views/Recent/FilesViewerRecent'
 
+import { BarComponent } from 'cozy-bar/transpiled'
+
 // To keep in sync with AppRoute below, used to extract params
 // in the "router" redux slice. Innermost routes should be
 // first
@@ -51,11 +53,28 @@ export const routes = [
   '/onlyoffice/create/:folderId/:fileClass'
 ]
 
-const RootComponent = routerProps => (
-  <Layout>
-    <RouterContextProvider {...routerProps} />
-  </Layout>
-)
+const RootComponent = ({ children, ...routerProps }) => {
+  const root = document.querySelector('#root')
+  const data = JSON.parse(root.dataset.cozy)
+  const bar = {
+    appName: data.app.name,
+    appEditor: data.app.editor,
+    iconPath: data.app.icon,
+    lang: data.locale,
+    replaceTitleOnMobile: false,
+    appSlug: data.app.slug,
+    appNamePrefix: data.app.prefix
+  }
+
+  return (
+    <Layout>
+      <RouterContextProvider {...routerProps}>
+        <BarComponent {...bar} />
+        {children}
+      </RouterContextProvider>
+    </Layout>
+  )
+}
 
 const AppRoute = (
   <Route>
