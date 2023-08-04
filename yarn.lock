@@ -6053,10 +6053,10 @@ cozy-scanner@^5.2.0:
   dependencies:
     cozy-device-helper "^2.7.0"
 
-cozy-scripts@^8.1.0:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/cozy-scripts/-/cozy-scripts-8.1.0.tgz#bb8ae227c587c671cc2450fdffbad7f9daa20614"
-  integrity sha512-wNWShe11ENjcguNX3w69xnI69zqaZMCZmbp7EUCsxVnRY7GAaFR3bynti/+Z9pDemIWwgWD+uUsgUiyFKaHmZw==
+cozy-scripts@^8.1.1:
+  version "8.1.1"
+  resolved "https://registry.yarnpkg.com/cozy-scripts/-/cozy-scripts-8.1.1.tgz#ad8e61e8acef0be08c120e650ee2b6b2061e9b39"
+  integrity sha512-T6q86zE1iE3sqV0alSjoWjg7lgbmUA4QOBEqZio8GNxy4fOnmZOKusBX/iUvgVRRXBEEa7b91efnqiPz5Wo+7Q==
   dependencies:
     "@babel/core" "7.10.0"
     "@babel/polyfill" "^7.10.4"
