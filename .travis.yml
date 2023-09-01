@@ -2,8 +2,8 @@ dist: focal
 node-preset: &node # Used internally to share configuration, ignored by travis.
   language: node_js
   node_js:
-    - 16
-    - 18
+    - 16.20.2
+    - 18.17.1
   cache:
     yarn: true
     directories:
@@ -29,13 +29,13 @@ jobs:
       stage: "prebuild"
       <<: *node
       node_js:
-        - 16
+        - 16.20.2
       script: yarn test
     - name: "Unit tests node 18"
       stage: "prebuild"
       <<: *node
       node_js:
-        - 18
+        - 18.17.1
       script: yarn test
     - &build-web
       name: "Drive web"
